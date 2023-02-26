@@ -1,0 +1,16 @@
+# Editor files
+.idea
+
+# Build files
+build
+
+# Cert files
+certs
+
+# Test coverage files
+coverprofile.out
+
+# Environment files
+.env*
+!.env.example
+!.env.test

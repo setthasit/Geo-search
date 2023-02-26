@@ -1,0 +1,44 @@
+syntax="proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package proto;
+option go_package = "./;pb";
+
+message Location {
+    double lat = 1;
+    double lon = 2;
+}
+
+message Estate {
+    string title = 1;
+    Location location = 2;
+    google.protobuf.Timestamp created_at = 3;
+    google.protobuf.Timestamp updated_at = 4;
+    google.protobuf.Timestamp deleted_at = 5;
+}
+
+message CreateEstateRequest {
+    string title = 1;
+    Location location = 2;
+}
+
+message CreateEstateResponse {
+    Estate estate = 1;
+}
+
+message GetEstatesByBoundBoxRequest {
+    Location top_left = 1;
+    Location bottom_right = 2;
+}
+
+message GetEstatesByBoundBoxResponse {
+    repeated Estate estates = 1;
+    int32 hits = 2;
+}
+
+
+service EstateService {
+    rpc CreateEstate(CreateEstateRequest) returns (CreateEstateResponse);
+    rpc GetEstateByBound(GetEstatesByBoundBoxRequest) returns (GetEstatesByBoundBoxResponse);
+}
