@@ -89,7 +89,6 @@
             bottomRight = { lat: 43.06561, lon: -96.45750 }
         ) {
             const apiUrl = 'http://localhost:10000'
-            console.log(apiUrl)
             fetch(`${apiUrl}/api/v1/estate?top_left_lat=${topLeft.lat}&top_left_lon=${topLeft.lon}&bottom_right_lat=${bottomRight.lat}&bottom_right_lon=${bottomRight.lon}`)
                 .then(async response => {
                     const result = await response.json()

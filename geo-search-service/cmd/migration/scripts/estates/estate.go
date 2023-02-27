@@ -66,15 +66,15 @@ func createEstateIndex(client *elasticsearch.Client) {
 
 func seedRandomEstates(mongoClient *mongo.Database, esClient *elasticsearch.Client) {
 	utils.LogInfo("Start seeding estates data...")
-	size := 100_000
+	size := 10_000
 	limit := 10_000
 	collection := mongoClient.Collection(entities.ESTATES_COLLECTION)
 
-	TopLeftLat := 53.25951
-	TopLeftLon := 7.67208
+	TopLeftLat := 66.94107
+	TopLeftLon := 57.34416
 
-	BottomRightLat := 51.07232
-	BottomRightLon := 13.99959
+	BottomRightLat := 46.81660
+	BottomRightLon := 130.20578
 
 	count := 1
 	estates := make([]entities.Estate, 0, limit)
